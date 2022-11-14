@@ -1,8 +1,11 @@
 plugins {
+
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+
 }
 
 android {
@@ -56,6 +59,7 @@ dependencies {
     def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
     //Custom libraries for dependency injection
     implementation 'com.google.dagger:hilt-android:2.44'
@@ -72,8 +76,16 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0-alpha03")
 
     //To load image into imageViewimplementation
-    implementation 'com.github.bumptech.glide:glide:4.13.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+
+    //Coroutines for async processes
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    //Lottie for animations
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 
 
 }

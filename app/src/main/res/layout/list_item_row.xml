@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
             name="listObject"
             type="com.tolgakurucay.shoppingappforinterview.model.ListModel" />
+        <variable
+            name="listener"
+            type="com.tolgakurucay.shoppingappforinterview.adapter.OnItemClickListener" />
     </data>
 
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:background="@android:color/darker_gray"
+        android:onClick="@{listener::onItemClick}"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/listItem"
             android:orientation="vertical"
-            android:layout_margin="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -44,14 +48,14 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/listPriceCurrency"
                     android:layout_width="0dp"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:layout_gravity="start|center"
                     android:gravity="start"
                     android:text="@{listObject.currency}"
@@ -63,7 +67,7 @@
                 <TextView
                     android:id="@+id/listPriceText"
                     android:layout_width="0dp"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:layout_gravity="start|center"
                     android:gravity="start"
                     android:text="@{listObject.price}"
@@ -71,22 +75,19 @@
                     android:textStyle="bold"
                     android:layout_height="wrap_content"/>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_weight="3"
-                    android:layout_height="0dp"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/addBasketButton"
                     android:layout_width="0dp"
-                    android:text="@string/add_basket"
-                    android:background="@android:color/holo_orange_dark"
-                    android:textColor="@color/white"
-                    android:textSize="11sp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_gravity="end"
+                    android:layout_marginStart="8dp"
+
                     android:layout_weight="6"
-                    />
+                    android:background="@android:color/holo_orange_dark"
+                    android:text="@string/add_basket"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
             </LinearLayout>
 
         </LinearLayout>

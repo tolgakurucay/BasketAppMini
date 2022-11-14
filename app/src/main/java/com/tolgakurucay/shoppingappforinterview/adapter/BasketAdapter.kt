@@ -21,6 +21,7 @@ class BasketAdapter @Inject constructor(): RecyclerView.Adapter<BasketAdapter.Ba
 
     override fun onBindViewHolder(holder: BasketHolder, position: Int) {
        holder.binding.listObject = basketList[position]
+        clickListeners(holder,position)
     }
 
     override fun getItemCount(): Int {
@@ -30,5 +31,17 @@ class BasketAdapter @Inject constructor(): RecyclerView.Adapter<BasketAdapter.Ba
     fun updateAdapter(newModelList : ArrayList<ListModel>){
         basketList = newModelList
         notifyDataSetChanged()
+    }
+
+    private fun clickListeners(holder: BasketHolder, position: Int){
+        holder.binding.imageViewRemove.setOnClickListener {
+
+        }
+        holder.binding.imageViewAdd.setOnClickListener {
+
+        }
+        holder.binding.textViewRemove.setOnClickListener{
+
+        }
     }
 }

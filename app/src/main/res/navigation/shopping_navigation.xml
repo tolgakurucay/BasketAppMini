@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shopping_navigation"
-    app:startDestination="@id/fragmentCaseBasket">
+    app:startDestination="@id/fragmentCaseListing">
 
     <fragment
         android:id="@+id/fragmentCaseListing"

@@ -10,6 +10,10 @@
     <string name="close_parentheses" translatable="false">)</string>
     <string name="default_item_count" translatable="false">0</string>
     <string name="remove">REMOVE</string>
+    <string name="my_basket">MY BASKET</string>
+    <string name="error">ERROR</string>
+    <string name="loading_shopping" translatable="false">drawable/loading_shopping.json</string>
+    <string name="has_added">has added</string>
 
 
 </resources>

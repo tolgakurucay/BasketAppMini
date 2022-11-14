@@ -14,5 +14,5 @@ data class ListModel(
     val currency: String,
     @SerializedName("image")
     val imagePath: String,
-    val itemCount : Int = 0
+    var itemCount : Int = 1
 )

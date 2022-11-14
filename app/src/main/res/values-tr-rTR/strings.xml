@@ -7,4 +7,7 @@
     <string name="place_order">SİPARİŞ VER</string>
     <string name="my_card">SEPETİM</string>
     <string name="remove">ÇIKAR</string>
+    <string name="my_basket">SEPETİM</string>
+    <string name="error">HATA</string>
+    <string name="has_added">eklendi</string>
 </resources>
