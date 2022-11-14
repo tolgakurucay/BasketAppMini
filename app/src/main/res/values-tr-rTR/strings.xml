@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShoppingAppForInterview</string>
+    <string name="add_basket">SEPETE EKLE</string>
+    <string name="okay">Tamam</string>
+    <string name="continue_shopping">ALIŞVERİŞE DEVAM ET</string>
+    <string name="place_order">SİPARİŞ VER</string>
+    <string name="my_card">SEPETİM</string>
+    <string name="remove">ÇIKAR</string>
+</resources>

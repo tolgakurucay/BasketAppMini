@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/basketLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.FragmentCaseBasket"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:id="@+id/basketTopLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="@+id/basketLayout"
+        app:layout_constraintStart_toStartOf="@+id/basketLayout"
+        app:layout_constraintEnd_toEndOf="@+id/basketLayout"
+        app:layout_constraintHeight_percent="0.075"
+        android:layout_height="0dp">
+
+        <TextView
+            android:text="@string/my_card"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@string/open_parentheses"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/itemCount"
+            android:text="@string/default_item_count"
+            android:layout_gravity="center|start"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@string/close_parentheses"
+            android:layout_gravity="center|start"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/basketRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/basketBottomLayout"
+        app:layout_constraintHeight_percent="0.825"
+        app:layout_constraintTop_toBottomOf="@+id/basketTopLayout">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+<LinearLayout
+    android:id="@+id/basketBottomLayout"
+    android:orientation="horizontal"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/shadow_1"
+    app:layout_constraintBottom_toBottomOf="@+id/basketLayout"
+    app:layout_constraintStart_toStartOf="@+id/basketLayout"
+    app:layout_constraintEnd_toEndOf="@+id/basketLayout"
+    android:layout_width="match_parent"
+    app:layout_constraintHeight_percent="0.1"
+    android:layout_height="0dp">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/continueShoppingButton"
+        android:background="@drawable/continue_shopping_button_shape"
+        android:text="@string/continue_shopping"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="8dp"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/placeOrderButton"
+        android:text="@string/place_order"
+        android:background="@drawable/place_order_button_shape"
+        android:textColor="@color/white"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

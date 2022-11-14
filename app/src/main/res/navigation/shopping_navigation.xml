@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/shopping_navigation"
+    app:startDestination="@id/fragmentCaseBasket">
+
+    <fragment
+        android:id="@+id/fragmentCaseListing"
+        android:name="com.tolgakurucay.shoppingappforinterview.view.FragmentCaseListing"
+        android:label="Listing"
+        tools:layout="@layout/fragment_case_listing">
+        <action
+            android:id="@+id/action_fragmentCaseListing_to_fragmentCaseBasket"
+            app:destination="@id/fragmentCaseBasket" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCaseBasket"
+        android:name="com.tolgakurucay.shoppingappforinterview.view.FragmentCaseBasket"
+        android:label="Basket"
+        tools:layout="@layout/fragment_case_basket">
+        <action
+            android:id="@+id/action_fragmentCaseBasket_to_fragmentCaseListing"
+            app:destination="@id/fragmentCaseListing" />
+    </fragment>
+</navigation>
