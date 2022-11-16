@@ -5,16 +5,12 @@
         <variable
             name="listObject"
             type="com.tolgakurucay.shoppingappforinterview.model.ListModel" />
-        <variable
-            name="listener"
-            type="com.tolgakurucay.shoppingappforinterview.adapter.OnItemClickListener" />
     </data>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:background="@android:color/darker_gray"
-        android:onClick="@{listener::onItemClick}"
         android:layout_height="wrap_content">
 
         <LinearLayout

@@ -43,7 +43,6 @@ android {
 
 dependencies {
 
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     def retrofitVersion = '2.9.0'
     def rxJavaVersion = '2.1.1'
 
@@ -85,6 +84,9 @@ dependencies {
     //Lottie for animations
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    //For swipe layout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
 
 

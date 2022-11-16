@@ -10,4 +10,6 @@ object TempSave {
     fun removeListModel(listModel: ListModel) = listModelArrayList.remove(listModel)
     fun removeAll() = listModelArrayList.clear()
     fun getListModel() : ArrayList<ListModel> = listModelArrayList
+
+
 }

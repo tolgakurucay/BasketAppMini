@@ -14,6 +14,13 @@
     <string name="error">ERROR</string>
     <string name="loading_shopping" translatable="false">drawable/loading_shopping.json</string>
     <string name="has_added">has added</string>
+    <string name="retry">Retry</string>
+    <string name="something_went_wrong">Something went wrong, you can swipe the layout to refresh</string>
+    <string name="refreshing">Data is refreshing...</string>
+    <string name="ordered_successfully">ordered successfully</string>
+    <string name="order_failed">order failed</string>
+    <string name="order_informations">Order informations</string>
+    <string name="add_items_to_basket">Add item(s) to basket to order</string>
 
 
 </resources>

@@ -17,9 +17,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun injectGetAPI() : OrderAPI{
+    fun injectAPI() : OrderAPI{
         return Retrofit.Builder()
-            .baseUrl(OrderConstants.GET_BASE_URL)
+            .baseUrl(OrderConstants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(OrderAPI::class.java)

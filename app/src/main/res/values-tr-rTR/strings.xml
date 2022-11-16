@@ -10,4 +10,11 @@
     <string name="my_basket">SEPETİM</string>
     <string name="error">HATA</string>
     <string name="has_added">eklendi</string>
+    <string name="retry">Tekrar dene</string>
+    <string name="something_went_wrong">Birşeyler ters gitti, sayfayı yenileyerek tekrar deneyebilirsin</string>
+    <string name="refreshing">Veriler yenileniyor</string>
+    <string name="ordered_successfully">siparişi başarıyla verildi</string>
+    <string name="order_failed">siparişi başarısız</string>
+    <string name="order_informations">Sipariş bilgileri</string>
+    <string name="add_items_to_basket">Sipariş verebilmek için sepete ürün ekleyin</string>
 </resources>

@@ -34,15 +34,15 @@ class FragmentCaseListingViewModel @Inject constructor(): ViewModel() {
 
     fun getItems(){
         loadingMutable.value=true
-        val getApi = AppModule.injectGetAPI()
+        val getApi = AppModule.injectAPI()
         getApi.getItems().enqueue(object : Callback<List<ListModel>>{
             override fun onResponse(
                 call: Call<List<ListModel>>,
                 response: Response<List<ListModel>>
             ) {
-                Log.d(TAG, "onResponse: $response")
                 if(response.isSuccessful){
-                    listModelMutableLiveData.value = response.body()!!
+
+                    listModelMutableLiveData.value = response.body()
                     loadingMutable.value=false
                 }
                 else{

@@ -72,4 +72,17 @@ object Extensions {
             .show()
     }
 
+    fun Fragment.showOneActionAlertRetry(title : String,message : String,okayButtonAction : ()->Unit){
+        return AlertDialog.Builder(requireContext())
+            .setCancelable(false)
+            .setTitle(title)
+            .setIcon(R.drawable.info_image_black)
+            .setMessage(message)
+            .setPositiveButton(getString(R.string.okay)) { _, _ ->
+                okayButtonAction()
+            }
+            .create()
+            .show()
+    }
+
 }

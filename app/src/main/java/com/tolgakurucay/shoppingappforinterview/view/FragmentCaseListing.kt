@@ -12,6 +12,8 @@ import com.tolgakurucay.shoppingappforinterview.adapter.ListAdapter
 import com.tolgakurucay.shoppingappforinterview.model.ListModel
 import com.tolgakurucay.shoppingappforinterview.databinding.FragmentCaseListingBinding
 import com.tolgakurucay.shoppingappforinterview.utils.Extensions.showOneActionAlert
+import com.tolgakurucay.shoppingappforinterview.utils.Extensions.showOneActionAlertRetry
+import com.tolgakurucay.shoppingappforinterview.utils.Extensions.showShortToast
 import com.tolgakurucay.shoppingappforinterview.viewmodel.FragmentCaseListingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -44,6 +46,13 @@ class FragmentCaseListing : Fragment() {
         lifecycleScope.launch {
             viewModel.getItems()
         }
+        viewBinding.swipeLayout.setOnRefreshListener {
+            showLoading()
+            showShortToast(getString(R.string.refreshing))
+            lifecycleScope.launch {
+                viewModel.getItems()
+            }
+        }
         observeLiveData()
 
     }
@@ -60,24 +69,25 @@ class FragmentCaseListing : Fragment() {
         viewModel.listModelLiveData.observe(viewLifecycleOwner){
             it?.let { listModel ->
                 listAdapter.updateAdapter(listModel)
+                viewBinding.swipeLayout.isRefreshing=false
+                hideLoading()
             }
         }
 
         viewModel.errorLiveData.observe(viewLifecycleOwner){
             it?.let {
-                showOneActionAlert(getString(R.string.error),it){
 
-                }
+                viewBinding.errorListing.visibility=View.VISIBLE
             }
         }
 
         viewModel.loadingLiveData.observe(viewLifecycleOwner){
             it?.let {
                 if(it){
-                    viewBinding.loadingCaseListing.visibility=View.VISIBLE
+                    showLoading()
                 }
                 else{
-                    viewBinding.loadingCaseListing.visibility=View.GONE
+                    hideLoading()
                 }
             }
         }
@@ -99,6 +109,19 @@ class FragmentCaseListing : Fragment() {
         }
 
     }
+
+    private fun showLoading(){
+        viewBinding.loadingCaseListing.visibility=View.VISIBLE
+        viewBinding.listingRecyclerView.visibility=View.INVISIBLE
+        viewBinding.errorListing.visibility=View.INVISIBLE
+    }
+    private fun hideLoading(){
+        viewBinding.loadingCaseListing.visibility=View.INVISIBLE
+        viewBinding.listingRecyclerView.visibility=View.VISIBLE
+        viewBinding.errorListing.visibility=View.INVISIBLE
+    }
+
+
 
 
 }
