@@ -16,7 +16,6 @@ import com.tolgakurucay.shoppingappforinterview.service.TempSave
 import com.tolgakurucay.shoppingappforinterview.utils.Extensions.showOneActionAlert
 import com.tolgakurucay.shoppingappforinterview.utils.Status
 import com.tolgakurucay.shoppingappforinterview.viewmodel.BasketViewModel
-import com.tolgakurucay.shoppingappforinterview.viewmodel.FragmentCaseBasketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -89,17 +88,33 @@ class FragmentCaseBasket @Inject constructor(): Fragment() {
                 when(it.status){
                     Status.SUCCESS->{
                         hideLoading()
-                        Log.d(TAG, "basket success")
-                        Log.d(TAG, "observeLiveData: ${it.data}")
+                        val newList = ArrayList<String>()
+                        it.data?.let {
+                            it.forEach { isOrderSuccessful ->
+                                if(isOrderSuccessful.isOrderedSuccessful){
+                                    newList.add(isOrderSuccessful.name+" ${getString(R.string.ordered_successfully)}")
+                                }
+                                else{
+                                    newList.add(isOrderSuccessful.name+" ${getString(R.string.order_failed)}")
+                                }
+
+                            }
+                        }
+                        showOneActionAlert(getString(R.string.order_successfully),newList.toString()){
+                            TempSave.removeAll()
+                            findNavController().navigateUp()
+                        }
                     }
                     Status.LOADING->{
-                        Log.d(TAG, "basket loading")
+
                         showLoading()
 
                     }
                     Status.ERROR->{
                         hideLoading()
-                        Log.d(TAG, "basket error")
+                        showOneActionAlert(getString(R.string.error),getString(R.string.order_has_failed)){
+
+                        }
                     }
                 }
             }

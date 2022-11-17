@@ -17,4 +17,6 @@
     <string name="order_failed">siparişi başarısız</string>
     <string name="order_informations">Sipariş bilgileri</string>
     <string name="add_items_to_basket">Sipariş verebilmek için sepete ürün ekleyin</string>
+    <string name="order_has_failed">Sipariş başarısız</string>
+    <string name="order_successfully">Sipariş başarılı</string>
 </resources>

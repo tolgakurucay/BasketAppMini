@@ -18,6 +18,7 @@ class TempSaveTest {
 
     @Test
     fun addListModelTest(){
+        tempSaveObject.removeAll()
         val exampleListModel = ListModel(1,"name","100","TL","www.example.com",2)
         tempSaveObject.addListModel(exampleListModel)
         val listModelThatAddedModel=tempSaveObject.getListModel()
@@ -26,6 +27,7 @@ class TempSaveTest {
 
     @Test
     fun removeListModelTest(){
+        tempSaveObject.removeAll()
         val exampleListModel = ListModel(1,"name","100","TL","www.example.com",2)
         tempSaveObject.addListModel(exampleListModel)
         tempSaveObject.removeListModel(exampleListModel)

@@ -14,7 +14,9 @@ import com.tolgakurucay.shoppingappforinterview.repository.CaseBasketRepositoryI
 import com.tolgakurucay.shoppingappforinterview.utils.Resource
 import com.tolgakurucay.shoppingappforinterview.utils.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,14 +35,10 @@ class BasketViewModel @Inject constructor(
         val isOrderSuccessfulList = arrayListOf<IsOrderSuccessful>()
 
         viewModelScope.launch {
-
-           val TAG = "bbilgi"
-
-
+        withContext(Dispatchers.IO){
+            val TAG = "bbilgi"
             listModels.forEach {
                 val postModel = PostModel(it.id,it.itemCount)
-
-                Log.d(TAG, "POSTMODELS : $postModel")
 
                 val list = arrayListOf<PostModel>()
                 list.add(postModel)
@@ -53,22 +51,22 @@ class BasketViewModel @Inject constructor(
                         counter++
                         isOrderSuccessfulList.add(IsOrderSuccessful(it.id,it.name,true))
                         if(listModels.size==counter){
-                            isOrderSuccessfulMutable.value= Resource.success(isOrderSuccessfulList)
+                            // isOrderSuccessfulMutable.value= Resource.success(isOrderSuccessfulList)
+                            isOrderSuccessfulMutable.postValue(Resource.success(isOrderSuccessfulList))
                         }
                     }
                     Status.ERROR->{
                         counter++
                         isOrderSuccessfulList.add(IsOrderSuccessful(it.id,it.name,false))
                         if(listModels.size==counter){
-                            isOrderSuccessfulMutable.value= Resource.success(isOrderSuccessfulList)
+                            //isOrderSuccessfulMutable.value= Resource.success(isOrderSuccessfulList)
+                            isOrderSuccessfulMutable.postValue(Resource.success(isOrderSuccessfulList))
                         }
                     }
-                    else->{
-                        isOrderSuccessfulList.add(IsOrderSuccessful(it.id,it.name,false))
-                        if(listModels.size==counter){
-                            isOrderSuccessfulMutable.value= Resource.success(isOrderSuccessfulList)
-                        }
+                    Status.LOADING->{
+                        isOrderSuccessfulMutable.postValue(Resource.loading(null))
                     }
+
                 }
 
 
@@ -76,6 +74,12 @@ class BasketViewModel @Inject constructor(
 
 
             }
+        }
+
+
+
+
+
 
 
         }

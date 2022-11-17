@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_case_listing">
         <action
             android:id="@+id/action_fragmentCaseListing_to_fragmentCaseBasket"
-            app:destination="@id/fragmentCaseBasket" />
+            app:destination="@id/fragmentCaseBasket"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/fragmentCaseBasket"
@@ -21,6 +25,8 @@
         tools:layout="@layout/fragment_case_basket">
         <action
             android:id="@+id/action_fragmentCaseBasket_to_fragmentCaseListing"
-            app:destination="@id/fragmentCaseListing" />
+            app:destination="@id/fragmentCaseListing"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
 </navigation>

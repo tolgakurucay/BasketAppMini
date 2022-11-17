@@ -31,7 +31,7 @@ class ListViewModel @Inject constructor(
 
     fun getItemsInViewModel() = viewModelScope.launch {
         withContext(Dispatchers.IO){
-            listModelMutableLiveData.postValue(Resource.loading(null))
+           // listModelMutableLiveData.postValue(Resource.loading(null))
             val response = repository.getItems()
             listModelMutableLiveData.postValue(response)
         }

@@ -21,6 +21,8 @@
     <string name="order_failed">order failed</string>
     <string name="order_informations">Order informations</string>
     <string name="add_items_to_basket">Add item(s) to basket to order</string>
+    <string name="order_successfully">Order has successfully</string>
+    <string name="order_has_failed">Order has failed</string>
 
 
 </resources>

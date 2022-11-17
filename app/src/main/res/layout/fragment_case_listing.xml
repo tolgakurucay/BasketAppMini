@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
             android:layout_marginEnd="75dp"
+            android:fontFamily="@font/orange_juice"
             android:text="@string/something_went_wrong"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -13,6 +13,7 @@ class CaseBasketRepository @Inject constructor(
 ) : CaseBasketRepositoryInterface {
     override suspend fun placeOrder(postModel : List<PostModel>): Resource<GetModel> {
 
+        Resource.loading(null)
         return try{
             val response = orderApi.placeOrder(postModel).awaitResponse()
             if(response.isSuccessful){

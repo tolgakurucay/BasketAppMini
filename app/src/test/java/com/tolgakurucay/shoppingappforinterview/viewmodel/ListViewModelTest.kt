@@ -1,8 +1,10 @@
 package com.tolgakurucay.shoppingappforinterview.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
 import com.google.common.truth.Truth.assertThat
 import com.tolgakurucay.shoppingappforinterview.getOrAwaitValueTest
+import com.tolgakurucay.shoppingappforinterview.model.ListModel
 import com.tolgakurucay.shoppingappforinterview.module.AppModule
 import com.tolgakurucay.shoppingappforinterview.repository.CaseBasketRepositoryFake
 import com.tolgakurucay.shoppingappforinterview.repository.CaseListingRepository
@@ -39,30 +41,18 @@ class ListViewModelTest {
 
 
     @Test
-    fun func1()= runTest{
+    fun `get items in viewmodel returns success`()= runTest{
 
         viewModel.getItemsInViewModel()
         advanceUntilIdle()
-       // viewModel.resetListModel()
-        assertThat(viewModel.listModelLiveData.getOrAwaitValueTest()).isEqualTo(Status.SUCCESS)
-
+        assertThat(viewModel.listModelLiveData.getOrAwaitValueTest().status).isEqualTo(Status.SUCCESS)
 
     }
 
-    @Test
-    fun loadingLiveDataTest(){
-       /* viewModel.getItems()
-        val loadingLiveData = viewModel.loadingLiveData.getOrAwaitValueTest()
-        assertThat(loadingLiveData).isAnyOf(true,false)*/
-    }
 
 
-    @Test
-    fun errorLiveDataTest(){
-      /*  viewModel.getItems()
-        val errorLiveData = viewModel.errorLiveData.getOrAwaitValueTest(1)*/
 
-    }
+
 
 
 
