@@ -49,7 +49,7 @@ From Android Studio:
     * Multiple language (Turkish and English)
     * Auto layout 
 
-## You can contact me with
+## You can contact with me
 1. E-mail: tolgakurucay1446@gmail.com
  
  
