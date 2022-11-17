@@ -5,7 +5,8 @@ import com.tolgakurucay.shoppingappforinterview.utils.Resource
 
 class CaseListingRepositoryFake : CaseListingRepositoryInterface {
     override suspend fun getItems(): Resource<List<ListModel>> {
-        TODO("Not yet implemented")
+        val model = ArrayList<ListModel>()
+            return Resource.success(model.toList())
     }
 
 }

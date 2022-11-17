@@ -1,12 +1,13 @@
 package com.tolgakurucay.shoppingappforinterview
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
-
+@VisibleForTesting(otherwise = VisibleForTesting.NONE)
 fun <T> LiveData<T>.getOrAwaitValueTest(
     time: Long = 2,
     timeUnit: TimeUnit = TimeUnit.SECONDS

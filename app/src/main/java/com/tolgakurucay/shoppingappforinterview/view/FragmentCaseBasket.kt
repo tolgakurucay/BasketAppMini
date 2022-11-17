@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class FragmentCaseBasket : Fragment() {
+class FragmentCaseBasket @Inject constructor(): Fragment() {
 
     private lateinit var viewBinding : FragmentCaseBasketBinding
     @Inject
@@ -88,49 +88,24 @@ class FragmentCaseBasket : Fragment() {
             it?.let {
                 when(it.status){
                     Status.SUCCESS->{
+                        hideLoading()
                         Log.d(TAG, "basket success")
+                        Log.d(TAG, "observeLiveData: ${it.data}")
                     }
                     Status.LOADING->{
                         Log.d(TAG, "basket loading")
+                        showLoading()
 
                     }
                     Status.ERROR->{
+                        hideLoading()
                         Log.d(TAG, "basket error")
                     }
                 }
             }
         }
 
-       /* viewModel.loadingLiveData.observe(viewLifecycleOwner){
-            it?.let { isLoading->
-                if(isLoading)  showLoading() else hideLoading()
-            }
-        }
-        viewModel.errorLiveData.observe(viewLifecycleOwner){
-            it?.let {
-                showOneActionAlert(getString(R.string.error),it){
-                    
-                }
-            }
-        }
-        viewModel.orderLiveData.observe(viewLifecycleOwner){
-            it?.let {list->
-              val orderMessages = arrayListOf<String>()
-                list.forEach { isOrderSuccessful->
-                    //
-                    if(isOrderSuccessful.isOrderedSuccessful){
-                        orderMessages.add("'${isOrderSuccessful.name}' ${getString(R.string.ordered_successfully)}")
-                    }
-                    else{
-                        orderMessages.add("'${isOrderSuccessful.name}' ${getString(R.string.order_failed)}")
-                    }
-                }
-                showOneActionAlert(getString(R.string.order_informations),orderMessages.toString()){
-                    findNavController().navigateUp()
-                    TempSave.removeAll()
-                }
-            }
-        }*/
+      
     }
     
     private fun showLoading(){

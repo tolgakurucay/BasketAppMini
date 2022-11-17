@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class FragmentCaseListing : Fragment() {
+class FragmentCaseListing @Inject constructor(): Fragment() {
     private lateinit var viewBinding: FragmentCaseListingBinding
 
     @Inject

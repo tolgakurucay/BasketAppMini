@@ -1,5 +1,9 @@
 package com.tolgakurucay.shoppingappforinterview.module
 
+import com.tolgakurucay.shoppingappforinterview.repository.CaseBasketRepository
+import com.tolgakurucay.shoppingappforinterview.repository.CaseBasketRepositoryInterface
+import com.tolgakurucay.shoppingappforinterview.repository.CaseListingRepository
+import com.tolgakurucay.shoppingappforinterview.repository.CaseListingRepositoryInterface
 import com.tolgakurucay.shoppingappforinterview.service.OrderAPI
 import com.tolgakurucay.shoppingappforinterview.service.OrderConstants
 import dagger.Module
@@ -25,4 +29,18 @@ object AppModule {
             .build()
             .create(OrderAPI::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun injectBasketInterface() : CaseBasketRepositoryInterface{
+        return CaseBasketRepository(injectAPI())
+    }
+
+    @Provides
+    @Singleton
+    fun injectListInterface() : CaseListingRepositoryInterface{
+        return CaseListingRepository(injectAPI())
+    }
+
+
 }
