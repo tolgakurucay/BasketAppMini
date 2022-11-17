@@ -31,11 +31,11 @@ unit tests using the command line:
 If all the unit tests have been successful you will get a `BUILD SUCCESSFUL`
 message.
 
-## Generating signed APK
+## Generating APK
 From Android Studio:
 1. ***Build*** menu
-2. ***Generate Signed APK...***
-3. Fill in the keystore information *(you only need to do this once manually and then let Android Studio remember it)*
+2. ***Build Bundle & APK...***
+3. Please wait until apk has created *(you can loading app to your phone using wifi and usb debugging.)*
 
 ## Used technologies
 1. I was working on the technologies that bellow:
