@@ -14,6 +14,8 @@ import com.tolgakurucay.shoppingappforinterview.adapter.BasketAdapter
 import com.tolgakurucay.shoppingappforinterview.databinding.FragmentCaseBasketBinding
 import com.tolgakurucay.shoppingappforinterview.service.TempSave
 import com.tolgakurucay.shoppingappforinterview.utils.Extensions.showOneActionAlert
+import com.tolgakurucay.shoppingappforinterview.utils.Status
+import com.tolgakurucay.shoppingappforinterview.viewmodel.BasketViewModel
 import com.tolgakurucay.shoppingappforinterview.viewmodel.FragmentCaseBasketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -25,7 +27,8 @@ class FragmentCaseBasket : Fragment() {
     @Inject
     lateinit var basketAdapter: BasketAdapter
 
-    private val viewModel : FragmentCaseBasketViewModel by viewModels()
+    private val viewModel : BasketViewModel by viewModels()
+
 
     private val TAG = "bilgi"
 
@@ -63,7 +66,8 @@ class FragmentCaseBasket : Fragment() {
         viewBinding.placeOrderButton.setOnClickListener {
             val list = TempSave.getListModel()
             if(list.isNotEmpty()){
-                viewModel.placeOrder(list)
+               // viewModel.placeOrder(list)
+                viewModel.placeOrderInViewModel(list)
             }
             else{
                 showOneActionAlert(getString(R.string.error),getString(R.string.add_items_to_basket)){
@@ -79,7 +83,25 @@ class FragmentCaseBasket : Fragment() {
     }
     
     private fun observeLiveData(){
-        viewModel.loadingLiveData.observe(viewLifecycleOwner){
+
+        viewModel.isOrderSuccessfulLiveData.observe(viewLifecycleOwner){
+            it?.let {
+                when(it.status){
+                    Status.SUCCESS->{
+                        Log.d(TAG, "basket success")
+                    }
+                    Status.LOADING->{
+                        Log.d(TAG, "basket loading")
+
+                    }
+                    Status.ERROR->{
+                        Log.d(TAG, "basket error")
+                    }
+                }
+            }
+        }
+
+       /* viewModel.loadingLiveData.observe(viewLifecycleOwner){
             it?.let { isLoading->
                 if(isLoading)  showLoading() else hideLoading()
             }
@@ -108,7 +130,7 @@ class FragmentCaseBasket : Fragment() {
                     TempSave.removeAll()
                 }
             }
-        }
+        }*/
     }
     
     private fun showLoading(){

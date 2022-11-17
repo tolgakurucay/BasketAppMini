@@ -17,6 +17,6 @@ interface OrderAPI {
 
     @Headers("Content-Type: application/json")
     @POST(OrderConstants.POST_ENDPOINT)
-    fun placeOrder(@Body postmodel : List<PostModel>) : Call<GetModel>
+    fun placeOrder(@Body postmodel : PostModel) : Call<GetModel>
 
 }

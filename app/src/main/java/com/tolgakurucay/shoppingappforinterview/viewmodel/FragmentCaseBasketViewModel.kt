@@ -45,15 +45,16 @@ class FragmentCaseBasketViewModel @Inject constructor(): ViewModel() {
 
 
 
-   fun placeOrder(listModels : ArrayList<ListModel>){
+  /* fun placeOrder(listModels : ArrayList<ListModel>){
        var counter = 0
-       loadingMutable.value=true
+      // loadingMutable.value=true
 
        val isOrderSuccessfulList = ArrayList<IsOrderSuccessful>()
+       val tempList = ArrayList<PostModel>()
        listModels.forEach { listModel->
 
            val postModel = PostModel(listModel.id,listModel.itemCount)
-           val tempList = ArrayList<PostModel>()
+
            tempList.add(postModel)
            retrofitAPI.placeOrder(tempList.toList()).enqueue(object : Callback<GetModel>{
                override fun onResponse(call: Call<GetModel>, response: Response<GetModel>) {
@@ -62,7 +63,7 @@ class FragmentCaseBasketViewModel @Inject constructor(): ViewModel() {
                        isOrderSuccessfulList.add(IsOrderSuccessful(listModel.id,listModel.name,true))
                        counter++
                        if(counter==listModels.size){
-                           loadingMutable.value=false
+                         //  loadingMutable.value=false
                            orderMutable.value=isOrderSuccessfulList
                        }
                    }
@@ -70,7 +71,7 @@ class FragmentCaseBasketViewModel @Inject constructor(): ViewModel() {
                        isOrderSuccessfulList.add(IsOrderSuccessful(listModel.id,listModel.name,false))
                        counter++
                        if(counter==listModels.size){
-                           loadingMutable.value=false
+                          // loadingMutable.value=false
                            orderMutable.value=isOrderSuccessfulList
                        }
                    }
@@ -78,7 +79,7 @@ class FragmentCaseBasketViewModel @Inject constructor(): ViewModel() {
                        isOrderSuccessfulList.add(IsOrderSuccessful(listModel.id,listModel.name,false))
                        counter++
                        if(counter==listModels.size){
-                           loadingMutable.value=false
+                           //loadingMutable.value=false
                            orderMutable.value=isOrderSuccessfulList
                        }
                    }
@@ -86,8 +87,8 @@ class FragmentCaseBasketViewModel @Inject constructor(): ViewModel() {
                }
 
                override fun onFailure(call: Call<GetModel>, t: Throwable) {
-                  loadingMutable.value=false
-                   errorMutable.value=t.localizedMessage
+                //  loadingMutable.value=false
+                  // errorMutable.value=t.localizedMessage
                }
 
            })
@@ -95,7 +96,7 @@ class FragmentCaseBasketViewModel @Inject constructor(): ViewModel() {
 
 
 
-   }
+   }*/
 
 
 }
