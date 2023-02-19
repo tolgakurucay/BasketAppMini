@@ -24,7 +24,6 @@ class FragmentCaseListing @Inject constructor(): Fragment() {
     @Inject
     lateinit var listAdapter: ListAdapter
 
-
     private val viewModel: ListViewModel by viewModels()
 
     private lateinit var globalMenu: Menu
@@ -71,22 +70,16 @@ class FragmentCaseListing @Inject constructor(): Fragment() {
             it?.let {
                 when (it.status) {
                     Status.SUCCESS -> {
-                       /* viewBinding.errorListing.visibility=View.INVISIBLE
-                        viewBinding.loadingCaseListing.visibility=View.INVISIBLE*/
                         hideError()
                         viewBinding.swipeLayout.isRefreshing=false
                         hideLoading()
                         listAdapter.updateAdapter(it.data!!)
                     }
                     Status.LOADING -> {
-                        /*viewBinding.errorListing.visibility=View.INVISIBLE
-                        viewBinding.loadingCaseListing.visibility=View.VISIBLE*/
                         hideError()
                         showLoading()
-
                     }
                     Status.ERROR -> {
-                        //viewBinding.errorListing.visibility=View.VISIBLE
                         showError()
                     }
                 }
